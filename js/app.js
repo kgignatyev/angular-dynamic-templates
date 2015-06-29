@@ -26,7 +26,7 @@ app.factory('TemplateService', function ($http, URL) {
     };
 });
 
-app.controller('ContentCtrl', function (DataService) {
+app.controller('ContentCtrl', function (DataService, $scope) {
     var ctrl = this;
 
     ctrl.content = [];
@@ -35,6 +35,16 @@ app.controller('ContentCtrl', function (DataService) {
         DataService.getData().then(function (result) {
             ctrl.content = result.data;
         });
+    };
+
+    $scope.updateItem = function(){
+        console.info("aaaa");
+        ctrl.content[2].data = "aaaaa";
+    };
+
+    $scope.removeItem = function(){
+
+        ctrl.content.splice(3,1);
     };
 
     ctrl.fetchContent();

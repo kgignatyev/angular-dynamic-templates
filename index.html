@@ -12,6 +12,9 @@
 <body>
 
 <div id="container" ng-controller="ContentCtrl as ctrl">
+    <button ng-click="updateItem()">update</button>
+    <button ng-click="removeItem()">remove</button>
+    <div>{{ctrl.content}}</div>
     <content-item ng-repeat="item in ctrl.content" content="item"></content-item>
 </div>
 
